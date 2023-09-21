@@ -2,11 +2,11 @@
 """
 BaseModel module - Defines the BaseModel class.
 """
+import uuid
+from datetime import datetime
+import models
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
-from datetime import datetime
-import uuid
-import models
 
 Base = declarative_base()
 
@@ -64,4 +64,3 @@ class BaseModel:
         Delete the current instance from the database and remove it from the storage.
         """
         models.storage.delete(self)
-
