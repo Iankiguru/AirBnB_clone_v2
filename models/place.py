@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
 from models.base_model import BaseModel
-from sqlalchemy import Column, String, Integer, Float, ForeignKey
+from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from os import environ
 
@@ -26,6 +26,14 @@ class Place(BaseModel):
 
         # Define a relationship from Place to Review
         reviews = relationship('Review', back_populates='place', cascade='all, delete-orphan')
+
+        # Define a many-to-many relationship between Place and Amenity through place_amenity
+        amenities = relationship(
+            "Amenity",
+            secondary="place_amenity",
+            viewonly=False,
+            back_populates="place_amenities"
+        )
     else:
         @property
         def reviews(self):
