@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 """
+<<<<<<< HEAD
 script that starts a Flask web application
+=======
+starts a Flask web application
+>>>>>>> 4e10c68ef1015c66984f502d24854df87331ab7d
 """
 
 from flask import Flask, render_template
